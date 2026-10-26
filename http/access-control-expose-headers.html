@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CORS Demo</title>
+  </head>
+  <body>
+    <h1>Access-Control-Expose-Headers Demo</h1>
+
+    <button id="fetchButton">Fetch API</button>
+
+    <pre id="output"></pre>
+
+    <script>
+      const button = document.getElementById("fetchButton");
+      const output = document.getElementById("output");
+
+      button.addEventListener("click", async () => {
+        try {
+          const response = await fetch("http://localhost:3000/api/data");
+
+          const body = await response.json();
+
+          const requestId = response.headers.get("X-Request-ID");
+
+          output.textContent = JSON.stringify(
+            {
+              status: response.status,
+              body: body,
+              requestId: requestId,
+            },
+            null,
+            2,
+          );
+        } catch (error) {
+          output.textContent = error.message;
+        }
+      });
+    </script>
+  </body>
+</html>

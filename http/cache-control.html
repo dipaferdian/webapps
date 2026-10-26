@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cache-Control Demo</title>
+  </head>
+  <body>
+    <h1>Cache-Control Demo</h1>
+
+    <button id="normalButton">Fetch normal</button>
+    <button id="reloadButton">Fetch dengan cache: reload</button>
+
+    <p id="status">Klik salah satu tombol untuk memulai.</p>
+
+    <h2>Response dari server</h2>
+    <pre id="output">Belum ada data.</pre>
+
+    <script>
+      const output = document.getElementById("output");
+      const status = document.getElementById("status");
+
+      async function fetchData(cacheMode = "default") {
+        status.textContent = "Memuat data...";
+
+        try {
+          const response = await fetch("/api/data", {
+            method: "GET",
+            cache: cacheMode,
+          });
+
+          const data = await response.json();
+
+          output.textContent = JSON.stringify(data, null, 2);
+          status.textContent = `HTTP ${response.status} | Cache mode: ${cacheMode}`;
+        } catch (error) {
+          status.textContent = `Error: ${error.message}`;
+        }
+      }
+
+      document.getElementById("normalButton").addEventListener("click", () => {
+        fetchData("default");
+      });
+
+      document.getElementById("reloadButton").addEventListener("click", () => {
+        fetchData("reload");
+      });
+    </script>
+  </body>
+</html>

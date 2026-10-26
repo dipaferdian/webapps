@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Trusted Types Breakpoints Lab</title>
+
+    <!-- Izinkan hanya policy bernama app-policy -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="require-trusted-types-for 'script'; trusted-types app-policy"
+    />
+  </head>
+  <body>
+    <h1>Trusted Types Breakpoints Lab</h1>
+
+    <input
+      id="userInput"
+      placeholder="Masukkan teks"
+      value="<b>Hello World</b>"
+    />
+
+    <hr />
+
+    <button id="sinkButton">Test Sink Violation</button>
+
+    <button id="policyButton">Test Policy Violation</button>
+
+    <button id="safeButton">Test Allowed Policy</button>
+
+    <div id="output"></div>
+
+    <script>
+      const input = document.getElementById("userInput");
+      const output = document.getElementById("output");
+
+      // Policy yang diizinkan oleh CSP
+      const appPolicy = trustedTypes.createPolicy("app-policy", {
+        createHTML(value) {
+          return value;
+        },
+      });
+
+      // 1. SINK VIOLATION
+      document.getElementById("sinkButton").addEventListener("click", () => {
+        const value = input.value;
+
+        console.log("Sink input:", value);
+
+        // String biasa ditolak oleh Trusted Types
+        output.innerHTML = value;
+      });
+
+      // 2. POLICY VIOLATION
+      document.getElementById("policyButton").addEventListener("click", () => {
+        // Nama policy ini tidak diizinkan oleh CSP
+        const policy = trustedTypes.createPolicy("unauthorized-policy", {
+          createHTML(value) {
+            return value;
+          },
+        });
+
+        output.innerHTML = policy.createHTML(input.value);
+      });
+
+      // 3. POLICY YANG DIIZINKAN
+      document.getElementById("safeButton").addEventListener("click", () => {
+        const trustedHTML = appPolicy.createHTML(input.value);
+
+        output.innerHTML = trustedHTML;
+      });
+    </script>
+  </body>
+</html>

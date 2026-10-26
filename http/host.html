@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Native Host Header Lab</title>
+  </head>
+  <body>
+    <h1>Host Header Injection Lab</h1>
+
+    <label for="email">Email dummy:</label>
+    <input id="email" type="email" value="victim@example.test" />
+
+    <p>
+      <button id="vulnerable">Test Vulnerable</button>
+      <button id="secure">Test Secure</button>
+    </p>
+
+    <h2>Response</h2>
+    <pre id="output">Belum ada request.</pre>
+
+    <script>
+      const emailInput = document.getElementById("email");
+      const output = document.getElementById("output");
+
+      async function sendRequest(endpoint) {
+        try {
+          const response = await fetch(`http://localhost:7000${endpoint}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: emailInput.value,
+            }),
+          });
+
+          const result = await response.json();
+
+          output.textContent = JSON.stringify(result, null, 2);
+        } catch (error) {
+          output.textContent = `Error: ${error.message}`;
+        }
+      }
+
+      document.getElementById("vulnerable").addEventListener("click", () => {
+        sendRequest("/api/vulnerable");
+      });
+
+      document.getElementById("secure").addEventListener("click", () => {
+        sendRequest("/api/secure");
+      });
+    </script>
+  </body>
+</html>
+
+<!-- Browser tidak mengizinkan melakukan perubahan Host header -->

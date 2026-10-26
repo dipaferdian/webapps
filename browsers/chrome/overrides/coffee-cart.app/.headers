@@ -1,0 +1,11 @@
+[
+  {
+    "applyTo": "list.json",
+    "headers": [
+      {
+        "name": "content-length",
+        "value": "30"
+      }
+    ]
+  }
+]

@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: postgres:14
+    container_name: postgres14
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: rails-lab
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres14_data:/var/lib/postgresql/data
+
+    networks:
+      - postgres_network
+
+volumes:
+  postgres14_data:
+
+networks:
+  postgres_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16
