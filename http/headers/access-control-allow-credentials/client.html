@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Native Node.js CORS Demo</title>
+  </head>
+  <body>
+    <h2>CORS Demo</h2>
+
+    <button id="login">1. Create demo session</button>
+    <button id="profile">2. Get profile</button>
+
+    <pre id="output"></pre>
+
+    <script>
+      const target = "http://localhost:3000";
+      const output = document.getElementById("output");
+
+      document.getElementById("login").onclick = async () => {
+        try {
+          const response = await fetch(`${target}/login`, {
+            credentials: "include",
+          });
+
+          output.textContent = await response.text();
+        } catch (error) {
+          output.textContent = error.message;
+        }
+      };
+
+      document.getElementById("profile").onclick = async () => {
+        try {
+          const response = await fetch(`${target}/api/profile`, {
+            credentials: "include",
+          });
+
+          output.textContent = JSON.stringify(await response.json(), null, 2);
+        } catch (error) {
+          output.textContent = "Request failed: " + error.message;
+        }
+      };
+    </script>
+  </body>
+</html>

