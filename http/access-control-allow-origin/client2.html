@@ -6,7 +6,7 @@
     <title>CORS Lab</title>
   </head>
   <body>
-    <h1>CORS Testing Lab</h1>
+    <h1>Client 2</h1>
 
     <p>
       Frontend origin:
@@ -31,11 +31,11 @@
       document.getElementById("frontend-origin").textContent =
         window.location.origin;
 
-      async function sendRequest(useCustomHeader = false) {
+      async function sendRequest(useCustomHeader = false, method = "GET") {
         const backendURL = backendInput.value.trim().replace(/\/$/, "");
 
         const options = {
-          method: "OPTIONS",
+          method: method,
         };
 
         if (useCustomHeader) {
@@ -49,6 +49,9 @@
         try {
           const response = await fetch(`${backendURL}/api/hello`, options);
 
+          if (method === "OPTIONS") {
+            return (result.textContent = JSON.stringify(response.body));
+          }
           const data = await response.json();
 
           result.textContent = JSON.stringify(
@@ -74,7 +77,7 @@
 
       document
         .getElementById("get-button")
-        .addEventListener("click", () => sendRequest(false));
+        .addEventListener("click", () => sendRequest(false, "OPTIONS"));
 
       document
         .getElementById("custom-button")

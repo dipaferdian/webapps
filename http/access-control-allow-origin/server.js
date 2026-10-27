@@ -3,7 +3,7 @@ const http = require("http");
 const HOST = "127.0.0.1";
 const PORT = 7000;
 
-const ALLOWED_ORIGIN = "http://localhost:5173";
+const ALLOWED_ORIGIN = "http://127.0.0.2:5173";
 
 const server = http.createServer((req, res) => {
   const origin = req.headers.origin;
