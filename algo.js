@@ -1,27 +1,38 @@
 function compute(array) {
-  let low_price = Infinity;
-  let high_price = -Infinity;
-  let low_move = 0;
-  let high_move = 0;
+  let max_profit = 0;
+  let min_price = Infinity;
 
-  while (high_move < array.length) {
-    if (array[low_move] < low_price) {
-      low_price = array[low_move];
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
 
-      high_move++;
+    min_price = Math.min(element, min_price);
+    const profit = element - min_price;
+
+    if (profit > max_profit) {
+      max_profit = profit;
     }
-
-    if (array[high_move] > high_price) {
-      high_price = array[high_move];
-    }
-
-    low_move++;
-    high_move++;
   }
 
-  console.log(low_price);
+  return max_profit;
 }
 
-console.log(compute([7, 1, 5, 3, 6, 4]));
-console.log(compute([7, 3, 2, 1]));
-console.log(compute([3, 2, 1, 9]));
+function test(input, expected) {
+  const actual = compute(input);
+
+  if (actual !== expected) {
+    console.log("\x1b[31m❌ FAIL\x1b[0m");
+    console.log(`input: ${JSON.stringify(input)}`);
+    console.log(`expected: ${expected}`);
+    console.log(`actual: ${actual}`);
+    console.log("--------------------");
+  }
+}
+
+test([7, 1, 5, 3, 6, 4], 5);
+test([7, 6, 4, 3, 1], 0);
+test([2, 4, 1], 2);
+test([1, 2], 1);
+test([2, 1, 2, 1, 0, 1, 2], 2);
+test([3, 2, 6, 1, 4], 4);
+test([5], 0);
+test([2, 2, 2, 2], 0);
