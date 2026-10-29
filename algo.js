@@ -1,25 +1,25 @@
-function compute(array) {
-  let pointer1 = 0;
-  let pointer2 = 0;
+function compute(array, n) {
+  let set = new Set();
 
-  while (pointer2 < array.length) {
-    if (array[pointer2] !== 0) {
-      const temporary = array[pointer2];
+  for (let index = 0; index < n; index++) {
+    const number = index + 1;
 
-      array[pointer2] = array[pointer1];
-      array[pointer1] = temporary;
-
-      pointer1++;
-    }
-
-    pointer2++;
+    set.add(number);
   }
 
-  return array;
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+
+    if (set.has(element)) set.delete(element);
+  }
+
+  return [...set.values()][0];
 }
 
-console.log(compute([0, 1, 0, 3, 12]));
-console.log(compute([1, 0, 12]));
+console.log(compute([5, 1, 4, 2], 5));
 
-// cari angka yang bukan nol, jika ada, maka pointer 2 tukar element nya dengan pointer 1, dan pointer 1 maju satu langkah
-// pointer 2 tetap melangkah sampai akhir
+console.log(compute([5, 1, 4, 3], 5));
+
+// simpan n perulangan index + 1 kedalam hash set
+// cari angka yang sama dengan di hash set
+// jika ditemukan, maka delete key dari hash set
