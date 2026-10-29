@@ -1,15 +1,18 @@
 function compute(array) {
-  let count = 0;
+  let left = 0;
+  let right = array.length - 1;
 
-  for (let index = 0; index < array.length; index++) {
-    const element = array[index];
+  while (left < right) {
+    if (array[left] != array[right]) return false;
 
-    if (element > 0) {
-      count++;
-    }
+    left++;
+    right--;
   }
 
-  return count;
+  return true;
 }
 
-console.log(compute([-2, 5, 0, 8, -1, 3]));
+console.log(compute("katak")); // true
+console.log(compute("malam")); // true
+console.log(compute("coding")); // false
+console.log(compute("level")); // true
