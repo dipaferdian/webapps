@@ -1,25 +1,28 @@
-function compute(array, n) {
-  let set = new Set();
+function compute(s) {
+  let map = new Map();
 
-  for (let index = 0; index < n; index++) {
-    const number = index + 1;
+  for (let index = 0; index < s.length; index++) {
+    const element = s[index];
 
-    set.add(number);
+    if (map.has(element)) {
+      const count = map.get(element) + 1;
+
+      map.set(element, count);
+    } else {
+      map.set(element, 1);
+    }
   }
 
-  for (let index = 0; index < array.length; index++) {
-    const element = array[index];
+  if (map.size === 0) return null;
 
-    if (set.has(element)) set.delete(element);
+  for (const [key, value] of map) {
+    if (value === 1) return key;
   }
-
-  return [...set.values()][0];
 }
 
-console.log(compute([5, 1, 4, 2], 5));
+console.log(compute("leetcode"));
+console.log(compute("aabbcde"));
 
-console.log(compute([5, 1, 4, 3], 5));
-
-// simpan n perulangan index + 1 kedalam hash set
-// cari angka yang sama dengan di hash set
-// jika ditemukan, maka delete key dari hash set
+// simpan dan hitung jumlah kemculan huruf ke hash map
+// jika di temukan lagi maka count value + 1
+// iterate hasil hash map, kembalikan jika ditemukan value nya 1
