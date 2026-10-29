@@ -25,3 +25,6 @@ google-chrome \
 sudo cp ~/Downloads/burp-ca.crt \
   /usr/local/share/ca-certificates/burp-ca.crt
 sudo update-ca-certificates
+
+# kill port
+sudo kill -9 $(sudo lsof -t -i:3000)
