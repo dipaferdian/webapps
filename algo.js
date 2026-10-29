@@ -1,18 +1,38 @@
 function compute(array) {
-  let left = 0;
-  let right = array.length - 1;
+  let max_number = -Infinity;
+  let second_number = null;
 
-  while (left < right) {
-    if (array[left] != array[right]) return false;
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
 
-    left++;
-    right--;
+    if (element > max_number) {
+      second_number = max_number;
+      max_number = element;
+    } else {
+      if (element != max_number) {
+        if (element > second_number) {
+          second_number = element;
+        }
+      }
+    }
   }
 
-  return true;
+  if (second_number === -Infinity) return null;
+
+  return second_number;
 }
 
-console.log(compute("katak")); // true
-console.log(compute("malam")); // true
-console.log(compute("coding")); // false
-console.log(compute("level")); // true
+console.log(compute([10, 5, 8, 10, 3]));
+// Output: 8
+
+console.log(compute([7, 7, 7]));
+// null
+
+console.log(compute([5, 5, 4]));
+// 4
+
+console.log(compute([-1, -5, -3]));
+// -3
+
+// jika ada yang lebih besar, maka ganti element yang besar, dan jadikan element yang sebelumnya sebagai element ke dua
+// jika tidak ada element yang lebih besar, maka ambil element terbesar yang tersedia dan jangan ambil yang terbesar pertama
