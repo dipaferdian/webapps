@@ -1,16 +1,16 @@
 function compute(array) {
-  const get_last_element = array.pop();
+  const get_first_element = array.shift();
 
-  array.unshift(get_last_element);
+  array.push(get_first_element);
 
   return array;
 }
 
 console.log(compute([1, 2, 3, 4]));
-// [4, 1, 2, 3]
+// [2, 3, 4, 1]
 
 console.log(compute(["a", "b", "c"]));
-// ["c", "a", "b"]
+// ["b", "c", "a"]
 
 console.log(compute([10]));
 // [10]
