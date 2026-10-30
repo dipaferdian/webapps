@@ -1,45 +1,36 @@
 function compute(l, r) {
-  let map = new Map();
+  let pointer1 = 0;
+  let pointer2 = 0;
+  let new_array = [];
 
-  for (let index = 0; index < l.length; index++) {
-    const element = l[index];
-
-    if (map.has(element)) {
-      const count = map.get(element) + 1;
-
-      map.set(element, count);
+  while (pointer1 < l.length && pointer2 < r.length) {
+    if (l[pointer1] < r[pointer2]) {
+      new_array.push(l[pointer1]);
+      pointer1++;
     } else {
-      map.set(element, 1);
+      new_array.push(r[pointer2]);
+      pointer2++;
     }
   }
 
-  for (let index = 0; index < r.length; index++) {
-    const element = r[index];
+  while (pointer1 < l.length) {
+    new_array.push(l[pointer1]);
 
-    if (map.has(element)) {
-      if (map.get(element) != 0) {
-        const reduce_count = map.get(element) - 1;
-
-        map.set(element, reduce_count);
-
-        if (reduce_count === 0) {
-          map.delete(element);
-        }
-      }
-    } else {
-      return false;
-    }
+    pointer1++;
   }
 
-  return map.size === 0;
+  while (pointer2 < r.length) {
+    new_array.push(r[pointer2]);
+
+    pointer2++;
+  }
+
+  return new_array;
 }
 
-console.log(compute("listen", "silent")); // true
-console.log(compute("hello", "world")); // false
-console.log(compute("anagram", "nagaram")); // true
-console.log(compute("rat", "car")); // false
-console.log(compute("aab", "abb")); // false
+console.log(compute([1, 3, 5], [2, 4, 6]));
+// [1, 2, 3, 4, 5, 6]
 
-// iterate l dan simpan ke map key sebagai huruf, simpan value sebagai jumlah kemunculan
-// iterate r dan jika di temukan huruh di l maka kurangi value
-// jika value nya sudah 0 maka hapus key dari map
+// pointer 1 dan pointer 2 bergerak maju
+// jika pointer 1 lebih besar dari pointer 2, maka push ke new_array, dan pointer1 bergerak
+// jika pointer 2 lebih kecil dari pointer 1, maka push ke new_array, dan pointer2 bergerak
