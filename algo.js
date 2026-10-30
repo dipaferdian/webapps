@@ -1,36 +1,16 @@
-function compute(l, r) {
-  let pointer1 = 0;
-  let pointer2 = 0;
-  let new_array = [];
+function compute(array) {
+  const get_last_element = array.pop();
 
-  while (pointer1 < l.length && pointer2 < r.length) {
-    if (l[pointer1] < r[pointer2]) {
-      new_array.push(l[pointer1]);
-      pointer1++;
-    } else {
-      new_array.push(r[pointer2]);
-      pointer2++;
-    }
-  }
+  array.unshift(get_last_element);
 
-  while (pointer1 < l.length) {
-    new_array.push(l[pointer1]);
-
-    pointer1++;
-  }
-
-  while (pointer2 < r.length) {
-    new_array.push(r[pointer2]);
-
-    pointer2++;
-  }
-
-  return new_array;
+  return array;
 }
 
-console.log(compute([1, 3, 5], [2, 4, 6]));
-// [1, 2, 3, 4, 5, 6]
+console.log(compute([1, 2, 3, 4]));
+// [4, 1, 2, 3]
 
-// pointer 1 dan pointer 2 bergerak maju
-// jika pointer 1 lebih besar dari pointer 2, maka push ke new_array, dan pointer1 bergerak
-// jika pointer 2 lebih kecil dari pointer 1, maka push ke new_array, dan pointer2 bergerak
+console.log(compute(["a", "b", "c"]));
+// ["c", "a", "b"]
+
+console.log(compute([10]));
+// [10]
