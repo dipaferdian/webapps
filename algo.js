@@ -1,8 +1,8 @@
-function compute(s) {
+function compute(l, r) {
   let map = new Map();
 
-  for (let index = 0; index < s.length; index++) {
-    const element = s[index];
+  for (let index = 0; index < l.length; index++) {
+    const element = l[index];
 
     if (map.has(element)) {
       const count = map.get(element) + 1;
@@ -13,16 +13,33 @@ function compute(s) {
     }
   }
 
-  if (map.size === 0) return null;
+  for (let index = 0; index < r.length; index++) {
+    const element = r[index];
 
-  for (const [key, value] of map) {
-    if (value === 1) return key;
+    if (map.has(element)) {
+      if (map.get(element) != 0) {
+        const reduce_count = map.get(element) - 1;
+
+        map.set(element, reduce_count);
+
+        if (reduce_count === 0) {
+          map.delete(element);
+        }
+      }
+    } else {
+      return false;
+    }
   }
+
+  return map.size === 0;
 }
 
-console.log(compute("leetcode"));
-console.log(compute("aabbcde"));
+console.log(compute("listen", "silent")); // true
+console.log(compute("hello", "world")); // false
+console.log(compute("anagram", "nagaram")); // true
+console.log(compute("rat", "car")); // false
+console.log(compute("aab", "abb")); // false
 
-// simpan dan hitung jumlah kemculan huruf ke hash map
-// jika di temukan lagi maka count value + 1
-// iterate hasil hash map, kembalikan jika ditemukan value nya 1
+// iterate l dan simpan ke map key sebagai huruf, simpan value sebagai jumlah kemunculan
+// iterate r dan jika di temukan huruh di l maka kurangi value
+// jika value nya sudah 0 maka hapus key dari map
