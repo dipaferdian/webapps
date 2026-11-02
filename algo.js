@@ -1,25 +1,26 @@
 function compute(array) {
-  let first = 0;
-  let last = array.length - 1;
+  let pointer1 = 0;
+  let pointer2 = 0;
 
-  while (first < last) {
-    const temp = array[first];
+  while (pointer2 < array.length) {
+    if (array[pointer2] != 0) {
+      array[pointer1] = array[pointer2];
+      array[pointer2] = 0;
 
-    array[first] = array[last];
-    array[last] = temp;
+      pointer1++;
+    }
 
-    first++;
-    last--;
+    pointer2++;
   }
 
   return array;
 }
 
-console.log(compute([1, 2, 3, 4]));
-// [4, 2, 3, 1]
+console.log(compute([0, 1, 0, 3, 12]));
+// [1, 3, 12, 0, 0]
 
-console.log(compute([10, 20, 30]));
-// [30, 20, 10]
+console.log(compute([0, 0, 1]));
+// [1, 0, 0]
 
-console.log(compute([5]));
-// [5]
+console.log(compute([1, 2, 3]));
+// [1, 2, 3]
