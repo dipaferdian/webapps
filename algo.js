@@ -3,25 +3,24 @@ function compute(array) {
   let fast = 0;
 
   while (fast < array.length) {
-    if (array[fast] % 2 != 0) {
-      array[slow] = array[fast];
-
+    if (array[slow] != array[fast]) {
       slow++;
+      array[slow] = array[fast];
     }
 
     fast++;
   }
 
-  array.length = slow;
+  array.length = slow + 1;
 
   return array;
 }
 
-console.log(compute([1, 2, 3, 4, 5, 6]));
-// [1, 3, 5]
+console.log(compute([1, 1, 2]));
+// [1, 2]
 
-console.log(compute([2, 4, 6]));
-// []
+console.log(compute([0, 0, 1, 1, 2, 2, 3]));
+// [0, 1, 2, 3]
 
-console.log(compute([1, 3, 5]));
-// [1, 3, 5]
+console.log(compute([1, 2, 3]));
+// [1, 2, 3]
