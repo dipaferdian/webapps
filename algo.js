@@ -1,5 +1,5 @@
 function compute(array, target) {
-  let count = 0;
+  let pairs = [];
 
   for (let i = 0; i < array.length; i++) {
     const element = array[i];
@@ -10,22 +10,21 @@ function compute(array, target) {
       const sum = element + sub_element;
 
       if (sum === target) {
-        count++;
+        pairs.push(sub_element, element);
       }
+
+      if (pairs.length == 2) return pairs;
     }
   }
 
-  return count;
+  return null;
 }
 
 console.log(compute([1, 2, 3, 4], 5));
-// 2
+// [2, 3]
 
-console.log(compute([1, 2, 3, 4], 6));
-// 1
+console.log(compute([1, 2, 3, 4], 8));
+// null
 
-console.log(compute([2, 2, 2], 4));
-// 3
-
-console.log(compute([1, 1, 1, 1], 2));
-// 6
+console.log(compute([5, 5, 10], 10));
+// [5, 5]
