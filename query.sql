@@ -1,17 +1,16 @@
--- CREATE TABLE users (
+-- CREATE TABLE products (
 --     id INT PRIMARY KEY,
 --     name VARCHAR(100),
---     age INT,
---     city VARCHAR(100)
+--     price INT,
+--     stock INT
 -- );
 
--- INSERT INTO users (id, name, age, city)
+-- INSERT INTO products (id, name, price, stock)
 -- VALUES
---     (1, 'Andi', 22, 'Jakarta'),
---     (2, 'Budi', 25, 'Bandung'),
---     (3, 'Citra', 21, 'Surabaya'),
---     (4, 'Dina', 28, 'Jakarta'),
---     (5, 'Eko', 24, 'Yogyakarta');
+--     (1, 'Laptop', 10000000, 5),
+--     (2, 'Mouse', 150000, 10),
+--     (3, 'Keyboard', 300000, 8),
+--     (4, 'Monitor', 2000000, 4),
+--     (5, 'Headset', 500000, 6);
 
-
-SELECT count(*) FROM users
+SELECT sum(stock) FROM products
