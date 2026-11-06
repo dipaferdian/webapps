@@ -1,19 +1,18 @@
--- CREATE TABLE orders (
+-- CREATE TABLE employees (
 --     id INT PRIMARY KEY,
---     customer_name VARCHAR(100),
---     status VARCHAR(50),
---     total INT
+--     name VARCHAR(100),
+--     department VARCHAR(100),
+--     salary INT
 -- );
 
--- INSERT INTO orders (id, customer_name, status, total)
+-- INSERT INTO employees (id, name, department, salary)
 -- VALUES
---     (1, 'Andi', 'completed', 100000),
---     (2, 'Budi', 'pending', 150000),
---     (3, 'Citra', 'completed', 200000),
---     (4, 'Dina', 'pending', 300000),
---     (5, 'Eko', 'completed', 250000);
+--     (1, 'Andi', 'Engineering', 8000000),
+--     (2, 'Budi', NULL, 6000000),
+--     (3, 'Citra', 'Marketing', 7000000),
+--     (4, 'Dina', NULL, 9000000),
+--     (5, 'Eko', 'Engineering', 7500000);
 
-SELECT status, count(*)
-FROM orders
-GROUP BY status
-HAVING count(*) > 2
+SELECT *
+FROM employees
+WHERE department is null
