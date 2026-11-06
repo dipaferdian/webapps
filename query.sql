@@ -15,4 +15,4 @@
 
 SELECT *
 FROM employees
-WHERE department is null
+WHERE department is not null
