@@ -13,6 +13,7 @@
 --     (4, 'Dina', 'pending', 300000),
 --     (5, 'Eko', 'completed', 250000);
 
-SELECT status, sum(total)
+SELECT status, count(*)
 FROM orders
-GROUP BY status;
+GROUP BY status
+HAVING count(*) > 2
