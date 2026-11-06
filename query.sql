@@ -14,4 +14,5 @@
 --     (5, 'Eko', 24, 'Yogyakarta');
 
 
-SELECT name, age FROM users
+SELECT * FROM users
+WHERE city = 'Jakarta'
