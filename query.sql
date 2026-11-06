@@ -14,4 +14,4 @@
 --     (5, 'Eko', 24, 'Yogyakarta');
 
 
-SELECT DISTINCT city FROM users
+SELECT count(*) FROM users
