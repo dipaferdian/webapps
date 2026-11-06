@@ -13,4 +13,4 @@
 --     (4, 'Monitor', 2000000, 4),
 --     (5, 'Headset', 500000, 6);
 
-SELECT sum(stock) FROM products
+SELECT avg(price) FROM products
