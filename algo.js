@@ -1,4 +1,4 @@
-function compute(array) {
+function compute(array, target) {
   let count = 0;
 
   for (let i = 0; i < array.length; i++) {
@@ -7,7 +7,9 @@ function compute(array) {
     for (let j = 0; j < i; j++) {
       const sub_element = array[j];
 
-      if (element === sub_element) {
+      const sum = element + sub_element;
+
+      if (sum === target) {
         count++;
       }
     }
@@ -16,14 +18,14 @@ function compute(array) {
   return count;
 }
 
-console.log(compute([1, 2, 1]));
+console.log(compute([1, 2, 3, 4], 5));
+// 2
+
+console.log(compute([1, 2, 3, 4], 6));
 // 1
 
-console.log(compute([2, 2, 2]));
+console.log(compute([2, 2, 2], 4));
 // 3
 
-console.log(compute([1, 2, 3, 4]));
-// 0
-
-console.log(compute([5, 5, 3, 3]));
-// 2
+console.log(compute([1, 1, 1, 1], 2));
+// 6
