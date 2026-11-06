@@ -26,8 +26,8 @@ Menguasai SQL `SELECT` dari dasar hingga mampu membuat query kompleks untuk kebu
 - [x] `BETWEEN`
 - [x] `LIKE`
 - [x] `IS NULL`
-- [ ] `IS NOT NULL`
-- [ ] `NOT`
+- [x] `IS NOT NULL`
+- [x] `NOT`
 - [ ] Operator precedence (`AND` vs `OR`)
 - [ ] Multiple conditions
 

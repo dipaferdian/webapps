@@ -15,4 +15,5 @@
 
 SELECT *
 FROM employees
-WHERE department is not null
+WHERE (department = 'Engineering' AND salary > 7500000)
+   OR department = 'Marketing'
