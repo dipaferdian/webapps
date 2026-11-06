@@ -15,4 +15,4 @@
 
 
 SELECT * FROM users
-where city = 'Jakarta' and age > 20
+where city = 'Bandung' or age < 23
