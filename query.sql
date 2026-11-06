@@ -15,4 +15,4 @@
 
 
 SELECT * FROM users
-where age BETWEEN 21 and 25
+where name LIKE 'A%'
