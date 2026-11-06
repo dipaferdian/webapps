@@ -1,16 +1,18 @@
--- CREATE TABLE products (
+-- CREATE TABLE orders (
 --     id INT PRIMARY KEY,
---     name VARCHAR(100),
---     price INT,
---     stock INT
+--     customer_name VARCHAR(100),
+--     status VARCHAR(50),
+--     total INT
 -- );
 
--- INSERT INTO products (id, name, price, stock)
+-- INSERT INTO orders (id, customer_name, status, total)
 -- VALUES
---     (1, 'Laptop', 10000000, 5),
---     (2, 'Mouse', 150000, 10),
---     (3, 'Keyboard', 300000, 8),
---     (4, 'Monitor', 2000000, 4),
---     (5, 'Headset', 500000, 6);
+--     (1, 'Andi', 'completed', 100000),
+--     (2, 'Budi', 'pending', 150000),
+--     (3, 'Citra', 'completed', 200000),
+--     (4, 'Dina', 'pending', 300000),
+--     (5, 'Eko', 'completed', 250000);
 
-SELECT min(price), max(price) FROM products
+SELECT status, sum(total)
+FROM orders
+GROUP BY status;
