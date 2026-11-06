@@ -14,5 +14,4 @@
 --     (5, 'Eko', 24, 'Yogyakarta');
 
 
-SELECT * FROM users
-where name LIKE 'A%'
+SELECT DISTINCT city FROM users
