@@ -15,4 +15,4 @@
 
 
 SELECT * FROM users
-WHERE city = 'Jakarta'
+order by age desc
