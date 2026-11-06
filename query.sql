@@ -15,4 +15,4 @@
 
 
 SELECT * FROM users
-where city IN ('Jakarta', 'Bandung', 'Yogyakarta')
+where age BETWEEN 21 and 25
