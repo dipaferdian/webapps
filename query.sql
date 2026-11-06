@@ -15,4 +15,5 @@
 
 
 SELECT * FROM users
-order by age desc
+order by age ASC
+LIMIT 3
