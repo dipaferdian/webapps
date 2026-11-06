@@ -15,5 +15,4 @@
 
 
 SELECT * FROM users
-order by age ASC
-LIMIT 3
+where city = 'Jakarta' and age > 20
