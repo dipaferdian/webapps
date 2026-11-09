@@ -15,4 +15,5 @@
 
 SELECT *
 FROM employees
-ORDER BY department ASC, salary DESC;
+ORDER BY id ASC
+LIMIT 2 OFFSET 2;
