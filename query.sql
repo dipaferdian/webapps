@@ -14,9 +14,8 @@
 --     (5, 'Eko', 'Engineering', 7500000);
 
 SELECT 
-COUNT(*) total_product,
-SUM(price) total_price,
-avg(price) average_product,
-min(price) lowest_price_product,
-max(price) highest_price_product
-FROM products;
+COUNT(price),
+SUM(price),
+avg(price)
+FROM products
+WHERE price > 500000

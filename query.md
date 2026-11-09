@@ -52,7 +52,7 @@ Menguasai SQL `SELECT` dari dasar hingga mampu membuat query kompleks untuk kebu
 - [x] `AVG()`
 - [x] `MIN()`
 - [x] `MAX()`
-- [ ] `COUNT(DISTINCT column)`
+- [x] `COUNT(DISTINCT column)`
 - [ ] Aggregate functions with `WHERE`
 
 ## Stage 5 — Grouping Data
