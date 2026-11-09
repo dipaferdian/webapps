@@ -28,8 +28,8 @@ Menguasai SQL `SELECT` dari dasar hingga mampu membuat query kompleks untuk kebu
 - [x] `IS NULL`
 - [x] `IS NOT NULL`
 - [x] `NOT`
-- [ ] Operator precedence (`AND` vs `OR`)
-- [ ] Multiple conditions
+- [x] Operator precedence (`AND` vs `OR`)
+- [x] Multiple conditions
 
 ## Stage 3 — Sorting and Pagination
 
