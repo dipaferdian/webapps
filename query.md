@@ -53,7 +53,7 @@ Menguasai SQL `SELECT` dari dasar hingga mampu membuat query kompleks untuk kebu
 - [x] `MIN()`
 - [x] `MAX()`
 - [x] `COUNT(DISTINCT column)`
-- [ ] Aggregate functions with `WHERE`
+- [x] Aggregate functions with `WHERE`
 
 ## Stage 5 — Grouping Data
 
