@@ -13,7 +13,5 @@
 --     (4, 'Dina', NULL, 9000000),
 --     (5, 'Eko', 'Engineering', 7500000);
 
-SELECT *
-FROM employees
-ORDER BY id ASC
-LIMIT 2 OFFSET 2;
+SELECT COUNT(DISTINCT department)
+FROM employees;
