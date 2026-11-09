@@ -39,9 +39,9 @@ Menguasai SQL `SELECT` dari dasar hingga mampu membuat query kompleks untuk kebu
 - [x] `ASC`
 - [x] `DESC`
 - [x] `LIMIT`
-- [ ] `OFFSET`
-- [ ] Pagination
-- [ ] Multi-column sorting
+- [x] `OFFSET`
+- [x] Pagination
+- [x] Multi-column sorting
 
 ## Stage 4 — Aggregate Functions
 
