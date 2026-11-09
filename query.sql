@@ -15,5 +15,6 @@
 
 SELECT *
 FROM employees
-WHERE (department = 'Engineering' AND salary > 7500000)
-   OR department = 'Marketing'
+WHERE salary > 6000000 
+   AND name IN('Andi', 'Budi', 'Eko')
+   AND NOT department = 'Marketing';
