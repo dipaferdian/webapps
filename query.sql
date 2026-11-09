@@ -15,6 +15,5 @@
 
 SELECT *
 FROM employees
-WHERE salary > 6000000 
-   AND name IN('Andi', 'Budi', 'Eko')
-   AND NOT department = 'Marketing';
+ORDER BY salary DESC
+LIMIT 2 OFFSET 1;
