@@ -13,5 +13,10 @@
 --     (4, 'Dina', NULL, 9000000),
 --     (5, 'Eko', 'Engineering', 7500000);
 
-SELECT COUNT(DISTINCT department)
-FROM employees;
+SELECT 
+COUNT(*) total_product,
+SUM(price) total_price,
+avg(price) average_product,
+min(price) lowest_price_product,
+max(price) highest_price_product
+FROM products;
