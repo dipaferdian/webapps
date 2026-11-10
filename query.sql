@@ -17,5 +17,5 @@ SELECT
 department,
 count(*)
 from employees
-WHERE salary > 7000000
 GROUP BY department
+HAVING count(department) > 1
