@@ -15,8 +15,7 @@
 
 SELECT 
 department,
-count(*)
+avg(salary)
 from employees
-where salary > 6000000
 GROUP BY department
-HAVING count(department) > 1
+HAVING avg(salary) > 7500000
