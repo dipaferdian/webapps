@@ -15,8 +15,7 @@
 
 SELECT 
 department,
-count(*), 
-sum(salary),
-avg(salary)
+count(*)
 from employees
+WHERE salary > 7000000
 GROUP BY department
