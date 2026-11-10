@@ -14,8 +14,9 @@
 --     (5, 'Eko', 'Engineering', 7500000);
 
 SELECT 
-COUNT(price),
-SUM(price),
-avg(price)
-FROM products
-WHERE price > 500000
+department,
+count(*), 
+sum(salary),
+avg(salary)
+from employees
+GROUP BY department
