@@ -17,10 +17,10 @@
 SELECT 
 region,
 category,
-count(*),
-sum(amount)
+count(*)
 from sales
 GROUP BY region, category
+HAVING count(amount) > 1
 
 
 
