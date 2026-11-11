@@ -1,21 +1,27 @@
--- CREATE TABLE employees (
+-- CREATE TABLE sales (
 --     id INT PRIMARY KEY,
---     name VARCHAR(100),
---     department VARCHAR(100),
---     salary INT
+--     region VARCHAR(50),
+--     category VARCHAR(50),
+--     amount INT
 -- );
 
--- INSERT INTO employees (id, name, department, salary)
+-- INSERT INTO sales (id, region, category, amount)
 -- VALUES
---     (1, 'Andi', 'Engineering', 8000000),
---     (2, 'Budi', NULL, 6000000),
---     (3, 'Citra', 'Marketing', 7000000),
---     (4, 'Dina', NULL, 9000000),
---     (5, 'Eko', 'Engineering', 7500000);
+--     (1, 'Jakarta', 'Electronics', 5000000),
+--     (2, 'Jakarta', 'Furniture', 3000000),
+--     (3, 'Bandung', 'Electronics', 4000000),
+--     (4, 'Bandung', 'Furniture', 2000000),
+--     (5, 'Jakarta', 'Electronics', 6000000),
+--     (6, 'Bandung', 'Electronics', 7000000);
 
 SELECT 
-department,
-avg(salary)
-from employees
-GROUP BY department
-ORDER BY avg(salary) desc
+region,
+category,
+count(*),
+sum(amount)
+from sales
+GROUP BY region, category
+
+
+
+SELECT * from sales
