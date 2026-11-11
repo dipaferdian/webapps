@@ -17,10 +17,13 @@
 SELECT 
 region,
 category,
-count(*)
+count(*),
+sum(amount)
 from sales
+where amount > 2500000
 GROUP BY region, category
-HAVING count(amount) > 1
+HAVING sum(amount) > 5000000
+ORDER BY sum(amount) desc
 
 
 
