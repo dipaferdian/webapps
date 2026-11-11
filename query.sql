@@ -18,4 +18,4 @@ department,
 avg(salary)
 from employees
 GROUP BY department
-HAVING avg(salary) > 7500000
+ORDER BY avg(salary) desc
