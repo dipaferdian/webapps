@@ -61,10 +61,10 @@ Menguasai SQL `SELECT` dari dasar hingga mampu membuat query kompleks untuk kebu
 
 - [x] `GROUP BY`
 - [x] `HAVING`
-- [ ] Multiple columns in `GROUP BY`
-- [ ] `WHERE` vs `HAVING`
-- [ ] Grouping with multiple aggregate functions
-- [ ] Grouping multiple levels of data
+- [x] Multiple columns in `GROUP BY`
+- [x] `WHERE` vs `HAVING`
+- [x] Grouping with multiple aggregate functions
+- [x] Grouping multiple levels of data
 
 ## Stage 6 — JOIN
 
