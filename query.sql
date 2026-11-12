@@ -1,30 +1,30 @@
--- CREATE TABLE sales (
+
+-- CREATE TABLE customers (
 --     id INT PRIMARY KEY,
---     region VARCHAR(50),
---     category VARCHAR(50),
---     amount INT
+--     name VARCHAR(100)
 -- );
 
--- INSERT INTO sales (id, region, category, amount)
+-- INSERT INTO customers (id, name)
 -- VALUES
---     (1, 'Jakarta', 'Electronics', 5000000),
---     (2, 'Jakarta', 'Furniture', 3000000),
---     (3, 'Bandung', 'Electronics', 4000000),
---     (4, 'Bandung', 'Furniture', 2000000),
---     (5, 'Jakarta', 'Electronics', 6000000),
---     (6, 'Bandung', 'Electronics', 7000000);
+--     (1, 'Andi'),
+--     (2, 'Budi'),
+--     (3, 'Citra');
 
-SELECT 
-region,
-category,
-count(*),
-sum(amount)
-from sales
-where amount > 2500000
-GROUP BY region, category
-HAVING sum(amount) > 5000000
-ORDER BY sum(amount) desc
+-- CREATE TABLE orders (
+--     id INT PRIMARY KEY,
+--     customer_id INT,
+--     total INT
+-- );
+
+-- INSERT INTO orders (id, customer_id, total)
+-- VALUES
+--     (1, 1, 100000),
+--     (2, 2, 150000),
+--     (3, 1, 200000);
 
 
-
-SELECT * from sales
+select 
+c.name,
+o.total
+FROM customers as c
+JOIN orders as o ON o.customer_id = c.id

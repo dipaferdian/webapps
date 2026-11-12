@@ -1,0 +1,22 @@
+$TTL 86400
+
+@ IN SOA ns1.lab.test. admin.lab.test. (
+    2026111101
+    3600
+    1800
+    604800
+    86400
+)
+
+@       IN NS    ns1.lab.test.
+
+ns1     IN A     192.0.2.10
+www     IN A     192.0.2.20
+dev     IN A     192.0.2.30
+staging IN A     192.0.2.40
+admin   IN A     192.0.2.50
+mail    IN A     192.0.2.60
+
+@       IN MX 10 mail.lab.test.
+
+@       IN TXT "lab dns zone transfer"
