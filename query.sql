@@ -25,9 +25,10 @@
 
 SELECT
     c.name,
-    sum(o.total),
-    count(*) as total_orders
+    count(o.total) as total_orders
 FROM customers AS c
-INNER JOIN orders AS o
+LEFT JOIN orders AS o
     ON c.id = o.customer_id
 GROUP BY c.name
+
+SELECT * from customers
