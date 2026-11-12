@@ -23,8 +23,10 @@
 --     (3, 1, 200000);
 
 
-select 
-c.name,
-o.total
-FROM customers as c
-JOIN orders as o ON o.customer_id = c.id
+SELECT
+    c.name,
+    o.total
+FROM customers AS c
+INNER JOIN orders AS o
+    ON c.id = o.customer_id
+WHERE o.total < 180000;
