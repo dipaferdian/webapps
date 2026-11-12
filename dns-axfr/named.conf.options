@@ -10,7 +10,7 @@ options {
     };
 
     allow-query {
-        any;
+        172.18.0.1;
     };
 
     recursion no;

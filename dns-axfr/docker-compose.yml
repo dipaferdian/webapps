@@ -4,8 +4,8 @@ services:
     container_name: dns-axfr-lab
 
     ports:
-      - "127.0.0.1:5353:53/tcp"
-      - "127.0.0.1:5353:53/udp"
+      - "127.0.0.1:15353:53/tcp"
+      - "127.0.0.1:15353:53/udp"
 
     volumes:
       - ./named.conf.options:/etc/bind/named.conf.options:ro

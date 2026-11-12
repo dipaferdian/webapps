@@ -1,0 +1,9 @@
+zone "lab.test" {
+    type master;
+
+    file "/etc/bind/db.lab.test";
+
+    allow-transfer {
+        none;
+    };
+};
