@@ -25,7 +25,7 @@
 
 SELECT
     c.name,
-    count(o.total) as total_orders
+    COALESCE(sum(o.total), 0)  as total_price
 FROM customers AS c
 LEFT JOIN orders AS o
     ON c.id = o.customer_id
