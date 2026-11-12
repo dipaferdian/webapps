@@ -28,3 +28,18 @@ sudo update-ca-certificates
 
 # kill port
 sudo kill -9 $(sudo lsof -t -i:3000)
+
+# view log
+docker logs -f dns-axfr-lab
+
+# view one shoot
+docker logs -f dns-axfr-lab
+
+# restart service after change configuration
+docker compose restart dns
+
+# change with source ip client
+dig -b 127.0.0.2 -p 15353 @127.0.0.1 www.lab.test
+
+# view and catch network interface
+sudo tcpdump -ni any -nn 'port 15353 or port 53'
