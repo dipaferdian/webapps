@@ -25,8 +25,9 @@
 
 SELECT
     c.name,
-    o.total
+    sum(o.total),
+    count(*) as total_orders
 FROM customers AS c
 INNER JOIN orders AS o
     ON c.id = o.customer_id
-WHERE o.total < 180000;
+GROUP BY c.name
